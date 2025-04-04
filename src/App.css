@@ -3,19 +3,20 @@
   max-width: 100%;
   margin: 0;
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9fafb;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #f6f9fc 0%, #e8f5e9 100%);
   min-height: 100vh;
   box-sizing: border-box;
 }
 
 h1 {
-  color: #1f2937;
+  color: #1b5e20;
   text-align: center;
-  margin-bottom: 30px;
-  font-weight: 600;
-  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 2.5rem;
   padding-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .file-list {
@@ -23,24 +24,26 @@ h1 {
   width: 100%;
   margin: 20px 0;
   text-align: left;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
 }
 
 .file-item {
-  padding: 18px 24px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .file-item:hover {
-  background-color: #f8f9fa;
-  transform: translateY(-1px);
+  background-color: rgba(76, 175, 80, 0.05);
+  transform: translateY(-2px);
 }
 
 .file-item:last-child {
@@ -48,7 +51,7 @@ h1 {
 }
 
 .file-link {
-  color: #374151;
+  color: #2c3e50;
   text-decoration: none;
   font-weight: 500;
   display: flex;
@@ -56,23 +59,27 @@ h1 {
   flex: 1;
   max-width: 80%;
   cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
 .file-link:hover {
-  color: #4361ee;
+  color: #2e7d32;
 }
 
 .file-name {
+  font-size: 1.1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .file-icon {
-  margin-right: 14px;
-  color: #6b7280;
-  font-size: 1.2rem;
-  min-width: 20px;
+  margin-right: 16px;
+  color: #2e7d32;
+  font-size: 1.4rem;
+  min-width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +92,7 @@ h1 {
 }
 
 .download-btn {
-  background: #4361ee;
+  background: #2e7d32;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -101,14 +108,14 @@ h1 {
 }
 
 .download-btn:hover {
-  background: #3a56d4;
+  background: #1b5e20;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
 }
 
 .file-type-badge {
-  font-size: 0.7em;
-  padding: 4px 10px;
+  font-size: 0.75rem;
+  padding: 6px 12px;
   border-radius: 20px;
   margin-left: 12px;
   text-transform: uppercase;
@@ -117,26 +124,32 @@ h1 {
   display: inline-flex;
   align-items: center;
   height: 20px;
+  transition: all 0.2s ease;
 }
 
 .file-type-audio {
-  background-color: #ffedd5;
-  color: #c2410c;
+  background-color: #fff3e0;
+  color: #e65100;
 }
 
 .file-type-image {
-  background-color: #dcfce7;
-  color: #15803d;
+  background-color: #e8f5e9;
+  color: #2e7d32;
 }
 
 .file-type-pdf {
-  background-color: #fee2e2;
-  color: #b91c1c;
+  background-color: #ffebee;
+  color: #c62828;
 }
 
 @media (max-width: 768px) {
   .App {
-    padding: 10px;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
   }
 
   .file-item {
@@ -145,6 +158,19 @@ h1 {
   
   .file-link {
     max-width: 70%;
+  }
+
+  .file-detail {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .file-detail-content {
+    padding: 20px;
+  }
+
+  .file-detail-content h2 {
+    font-size: 1.5rem;
   }
 }
 
@@ -167,53 +193,93 @@ h1 {
   .file-type-badge {
     margin-left: auto;
   }
+
+  .file-detail-content .file-icon {
+    font-size: 3rem;
+    padding: 15px;
+  }
+
+  .file-detail-content .download-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
 }
 
 .file-detail {
   max-width: 800px;
   margin: 20px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .back-btn {
-  background: #f3f4f6;
+  background: #2e7d32;
+  color: white;
   border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
   cursor: pointer;
-  font-weight: 500;
-  margin-bottom: 20px;
-  transition: all 0.2s;
+  font-weight: 600;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
 }
 
 .back-btn:hover {
-  background: #e5e7eb;
+  background: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
 }
 
 .file-detail-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
+  gap: 24px;
+  padding: 30px;
   text-align: center;
 }
 
 .file-detail-content .file-icon {
-  font-size: 3rem;
+  font-size: 4rem;
   margin: 0;
+  color: #2e7d32;
+  background: rgba(46, 125, 50, 0.1);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .file-detail-content h2 {
   margin: 0;
-  color: #1f2937;
+  color: #1b5e20;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .file-detail-content .download-btn {
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 1rem;
+  margin-top: 30px;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  background: #2e7d32;
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-detail-content .download-btn:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(46, 125, 50, 0.3);
 }
