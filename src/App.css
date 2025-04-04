@@ -1,38 +1,46 @@
 .App {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
-  color: #333;
+  color: #1f2937;
   text-align: center;
   margin-bottom: 30px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 2rem;
+  padding-top: 20px;
 }
 
 .file-list {
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: none;
+  width: 100%;
+  margin: 20px 0;
   text-align: left;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
 
 .file-item {
-  padding: 16px 20px;
-  border-bottom: 1px solid #eee;
+  padding: 18px 24px;
+  border-bottom: 1px solid #f0f0f0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .file-item:hover {
   background-color: #f8f9fa;
+  transform: translateY(-1px);
 }
 
 .file-item:last-child {
@@ -40,35 +48,56 @@ h1 {
 }
 
 .file-link {
-  color: #444;
+  color: #374151;
   text-decoration: none;
   font-weight: 500;
   display: flex;
   align-items: center;
+  flex: 1;
+  max-width: 80%;
+  cursor: pointer;
+}
+
+.file-link:hover {
+  color: #4361ee;
+}
+
+.file-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .file-icon {
-  margin-right: 12px;
-  color: #6c757d;
+  margin-right: 14px;
+  color: #6b7280;
+  font-size: 1.2rem;
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .file-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  margin-left: 20px;
 }
 
 .download-btn {
   background: #4361ee;
   color: white;
   padding: 8px 16px;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 0.85em;
   font-weight: 500;
   transition: all 0.2s;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
 }
 
 .download-btn:hover {
@@ -79,11 +108,15 @@ h1 {
 
 .file-type-badge {
   font-size: 0.7em;
-  padding: 3px 8px;
-  border-radius: 12px;
-  margin-left: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-left: 12px;
   text-transform: uppercase;
   font-weight: 600;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
 }
 
 .file-type-audio {
@@ -101,14 +134,86 @@ h1 {
   color: #b91c1c;
 }
 
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  .file-item {
+    padding: 16px 20px;
+  }
+  
+  .file-link {
+    max-width: 70%;
+  }
+}
+
 @media (max-width: 600px) {
   .file-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 14px;
+  }
+  
+  .file-link {
+    max-width: 100%;
   }
   
   .file-actions {
     align-self: flex-end;
+    margin-left: 0;
   }
+  
+  .file-type-badge {
+    margin-left: auto;
+  }
+}
+
+.file-detail {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.back-btn {
+  background: #f3f4f6;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+}
+
+.back-btn:hover {
+  background: #e5e7eb;
+}
+
+.file-detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.file-detail-content .file-icon {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.file-detail-content h2 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.file-detail-content .download-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1rem;
 }
