@@ -1,10 +1,114 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-  font-family: Arial, sans-serif;
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.file-list {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: left;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.file-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.file-item:hover {
   background-color: #f8f9fa;
+}
+
+.file-item:last-child {
+  border-bottom: none;
+}
+
+.file-link {
+  color: #444;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.file-icon {
+  margin-right: 12px;
+  color: #6c757d;
+}
+
+.file-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.download-btn {
+  background: #4361ee;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.download-btn:hover {
+  background: #3a56d4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+}
+
+.file-type-badge {
+  font-size: 0.7em;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.file-type-audio {
+  background-color: #ffedd5;
+  color: #c2410c;
+}
+
+.file-type-image {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.file-type-pdf {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+@media (max-width: 600px) {
+  .file-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .file-actions {
+    align-self: flex-end;
+  }
 }
